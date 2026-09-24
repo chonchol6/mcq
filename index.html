@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MCQ Challenge</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --purple:#7657e8;
+    --violet:#9b59e8;
+    --blue:#3f8cff;
+    --cyan:#20b9c9;
+    --pink:#e85aa5;
+    --green:#20b486;
+    --orange:#f59e5b;
+
+    --dark:#25304a;
+    --muted:#68748c;
+}
+
+/* ==============================
+   BODY
+============================== */
+
+body{
+    font-family:'Noto Sans Bengali',sans-serif;
+    color:var(--dark);
+    min-height:100vh;
+
+    background:
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(118,87,232,.25),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 95% 10%,
+            rgba(32,185,201,.23),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(232,90,165,.20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(245,158,91,.16),
+            transparent 25%
+        ),
+        #eef2ff;
+}
+
+/* ==============================
+   HERO
+============================== */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:48px 20px 90px;
+
+    text-align:center;
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5c50d9 0%,
+            #8155d8 38%,
+            #4e83e8 72%,
+            #27aebd 100%
+        );
+
+    box-shadow:
+        0 15px 45px rgba(78,83,190,.25);
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    left:-130px;
+    top:-180px;
+
+    background:rgba(255,255,255,.13);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    right:-170px;
+    bottom:-300px;
+
+    background:rgba(255,255,255,.10);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    width:78px;
+    height:78px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:24px;
+
+    font-size:38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.30),
+            rgba(255,255,255,.10)
+        );
+
+    border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.35);
+}
+
+.hero h1{
+    margin-top:18px;
+
+    font-size:37px;
+    font-weight:800;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,.15);
+}
+
+.hero p{
+    margin-top:6px;
+
+    font-size:15px;
+
+    opacity:.94;
+}
+
+/* ==============================
+   MAIN
+============================== */
+
+.container{
+    width:min(920px,calc(100% - 28px));
+
+    margin:-52px auto 40px;
+
+    position:relative;
+    z-index:10;
+}
+
+/* ==============================
+   CARD
+============================== */
+
+.card{
+    padding:30px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.96),
+            rgba(247,248,255,.94)
+        );
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 25px 70px rgba(46,57,100,.16),
+        0 5px 15px rgba(46,57,100,.07);
+
+    backdrop-filter:blur(18px);
+}
+
+/* ==============================
+   INPUT
+============================== */
+
+.input-title{
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    margin-bottom:10px;
+}
+
+.input-icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:15px;
+
+    color:white;
+    font-size:23px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7258e8,
+            #a35ce2
+        );
+
+    box-shadow:
+        0 8px 20px rgba(118,87,232,.25);
+}
+
+.card h2{
+    font-size:24px;
+    font-weight:800;
+}
+
+.description{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.7;
+
+    margin-bottom:18px;
+}
+
+/* ==============================
+   TEXTAREA
+============================== */
+
+textarea{
+    width:100%;
+    min-height:270px;
+
+    resize:vertical;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    border:2px solid #dfe3f5;
+
+    outline:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f8ff,
+            #f2f8ff
+        );
+
+    color:#34405b;
+
+    font-family:monospace;
+    font-size:13px;
+    line-height:1.6;
+
+    transition:.25s;
+}
+
+textarea:focus{
+    border-color:#8171e9;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(118,87,232,.10),
+        0 10px 30px rgba(118,87,232,.08);
+}
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.button-row{
+    display:flex;
+    gap:12px;
+
+    margin-top:18px;
+
+    flex-wrap:wrap;
+}
+
+button{
+    font-family:inherit;
+    font-weight:700;
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:
+        transform .18s,
+        box-shadow .18s,
+        filter .18s;
+}
+
+/* MAIN BUTTON */
+
+.primary-btn{
+    flex:1;
+
+    min-width:190px;
+
+    padding:14px 22px;
+
+    border-radius:15px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6655e5,
+            #9258df,
+            #4f86e8
+        );
+
+    box-shadow:
+        0 10px 25px rgba(102,85,229,.28);
+}
+
+.primary-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 30px rgba(102,85,229,.35);
+
+    filter:saturate(1.12);
+}
+
+/* SECONDARY BUTTON */
+
+.secondary-btn{
+    padding:14px 20px;
+
+    border-radius:15px;
+
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1da9b8,
+            #3c8fd9
+        );
+
+    box-shadow:
+        0 9px 22px rgba(32,169,184,.23);
+}
+
+.secondary-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 14px 28px rgba(32,169,184,.30);
+}
+
+/* ==============================
+   TEST HEADER
+============================== */
+
+.test-header{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:18px;
+}
+
+.question-counter{
+    padding:9px 14px;
+
+    border-radius:12px;
+
+    color:#5549b9;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeeaff,
+            #e4efff
+        );
+
+    font-weight:800;
+
+    border:1px solid #ddd9ff;
+}
+
+.timer{
+    min-width:112px;
+
+    padding:9px 15px;
+
+    text-align:center;
+
+    border-radius:13px;
+
+    color:#a44871;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffeaf5,
+            #fff1e7
+        );
+
+    border:1px solid #ffd6e8;
+
+    font-weight:800;
+
+    box-shadow:
+        0 6px 15px rgba(232,90,165,.10);
+}
+
+/* ==============================
+   PROGRESS
+============================== */
+
+.progress-wrap{
+    height:10px;
+
+    width:100%;
+
+    margin-bottom:25px;
+
+    border-radius:50px;
+
+    background:#e5e8f4;
+
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6956e5,
+            #a054dd,
+            #3f91e8,
+            #22b6bd
+        );
+
+    box-shadow:
+        0 2px 10px rgba(101,85,224,.30);
+
+    transition:.4s ease;
+}
+
+/* ==============================
+   QUESTION BOX
+============================== */
+
+.question-box{
+    position:relative;
+
+    padding:24px;
+
+    margin-bottom:20px;
+
+    border-radius:21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeeaff 0%,
+            #eef5ff 48%,
+            #e9fbfb 100%
+        );
+
+    border:1px solid #d9ddff;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.8),
+        0 8px 22px rgba(87,85,180,.07);
+}
+
+.question-number{
+    display:inline-block;
+
+    padding:5px 11px;
+
+    margin-bottom:11px;
+
+    border-radius:9px;
+
+    color:#ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7057e6,
+            #9856db
+        );
+
+    font-size:11px;
+    font-weight:800;
+
+    box-shadow:
+        0 5px 12px rgba(112,87,230,.22);
+}
+
+.question-text{
+    font-size:20px;
+
+    line-height:1.65;
+
+    font-weight:800;
+
+    color:#29344f;
+}
+
+/* ==============================
+   OPTIONS
+============================== */
+
+.options{
+    display:grid;
+
+    gap:13px;
+}
+
+/* BASE OPTION */
+
+.option{
+    width:100%;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    gap:13px;
+
+    padding:16px 17px;
+
+    text-align:left;
+
+    border-radius:18px;
+
+    font-size:15px;
+
+    color:#2f3a55;
+
+    border:2px solid transparent;
+
+    box-shadow:
+        0 5px 13px rgba(50,60,100,.07);
+
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        border-color .2s,
+        filter .2s;
+}
+
+/* FOUR DIFFERENT COLORS */
+
+.option:nth-child(1){
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #fff8fa
+        );
+
+    border-color:#ffd9e6;
+}
+
+.option:nth-child(2){
+    background:
+        linear-gradient(
+            135deg,
+            #edf9ff,
+            #f6fcff
+        );
+
+    border-color:#d3edfb;
+}
+
+.option:nth-child(3){
+    background:
+        linear-gradient(
+            135deg,
+            #f2f0ff,
+            #faf8ff
+        );
+
+    border-color:#dfd9ff;
+}
+
+.option:nth-child(4){
+    background:
+        linear-gradient(
+            135deg,
+            #ecfbf5,
+            #f7fffb
+        );
+
+    border-color:#d1f1e1;
+}
+
+/* LETTER */
+
+.option-letter{
+    width:36px;
+    height:36px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:800;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.10);
+}
+
+.option:nth-child(1) .option-letter{
+    background:
+        linear-gradient(
+            135deg,
+            #ed6b9f,
+            #e98ab3
+        );
+}
+
+.option:nth-child(2) .option-letter{
+    background:
+        linear-gradient(
+            135deg,
+            #3f91df,
+            #43b9d0
+        );
+}
+
+.option:nth-child(3) .option-letter{
+    background:
+        linear-gradient(
+            135deg,
+            #725ae4,
+            #9b69dc
+        );
+}
+
+.option:nth-child(4) .option-letter{
+    background:
+        linear-gradient(
+            135deg,
+            #20a97c,
+            #38bd8c
+        );
+}
+
+/* HOVER */
+
+.option:not(:disabled):hover{
+    transform:
+        translateY(-3px)
+        scale(1.005);
+
+    box-shadow:
+        0 11px 25px rgba(55,65,110,.13);
+
+    filter:saturate(1.08);
+}
+
+/* SELECTED */
+
+.option.selected{
+    transform:scale(1.015);
+
+    color:#ffffff !important;
+
+    border-color:#ffffff !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6754e4,
+            #9256dc,
+            #438bdc
+        ) !important;
+
+    box-shadow:
+        0 12px 32px rgba(101,84,224,.35),
+        0 0 0 3px rgba(118,87,232,.13);
+
+    animation:selectedGlow .35s ease;
+}
+
+.option.selected .option-letter{
+    background:rgba(255,255,255,.25) !important;
+
+    color:white;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+@keyframes selectedGlow{
+
+    0%{
+        transform:scale(.98);
+        box-shadow:0 0 0 rgba(101,84,224,0);
+    }
+
+    60%{
+        transform:scale(1.025);
+        box-shadow:
+            0 0 30px rgba(101,84,224,.38);
+    }
+
+    100%{
+        transform:scale(1.015);
+    }
+}
+
+.option:disabled{
+    cursor:default;
+}
+
+/* ==============================
+   NAVIGATION
+============================== */
+
+.navigation{
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+    margin-top:22px;
+}
+
+.nav-btn{
+    padding:11px 19px;
+
+    border-radius:13px;
+
+    color:#5147ad;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeeaff,
+            #e7f1ff
+        );
+
+    border:1px solid #d9dcfb;
+
+    box-shadow:
+        0 5px 12px rgba(80,75,170,.08);
+}
+
+.nav-btn:hover:not(:disabled){
+    transform:translateY(-2px);
+}
+
+.nav-btn:disabled{
+    opacity:.42;
+    cursor:not-allowed;
+}
+
+.finish-btn{
+    padding:11px 20px;
+
+    border-radius:13px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef6b93,
+            #e48763
+        );
+
+    box-shadow:
+        0 8px 18px rgba(231,105,126,.22);
+}
+
+.finish-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ==============================
+   RESULT
+============================== */
+
+.result-header{
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+.result-icon{
+    width:80px;
+    height:80px;
+
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:25px;
+
+    font-size:38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0b8,
+            #ffe4ee,
+            #e8e7ff
+        );
+
+    box-shadow:
+        0 12px 28px rgba(210,150,80,.17);
+}
+
+.result-header h2{
+    margin-top:15px;
+
+    font-size:29px;
+    font-weight:800;
+}
+
+.score-big{
+    margin-top:7px;
+
+    font-size:42px;
+    font-weight:800;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6351dd,
+            #9b51d7,
+            #3c8bd7
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ==============================
+   STATS
+============================== */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:13px;
+
+    margin-bottom:27px;
+}
+
+.stat{
+    padding:18px 12px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    border:1px solid transparent;
+}
+
+.stat-number{
+    font-size:25px;
+    font-weight:800;
+}
+
+.stat-label{
+    margin-top:3px;
+
+    color:#68748c;
+
+    font-size:12px;
+}
+
+/* DIFFERENT STAT COLORS */
+
+.stat:nth-child(1){
+    background:#f0efff;
+    border-color:#dfdcff;
+}
+
+.stat:nth-child(2){
+    background:#eafaf3;
+    border-color:#d0f0df;
+}
+
+.stat:nth-child(3){
+    background:#fff0f3;
+    border-color:#ffd9e2;
+}
+
+.stat:nth-child(4){
+    background:#f0f5fb;
+    border-color:#dfe8f3;
+}
+
+.stat:nth-child(5){
+    background:#eafaf3;
+    border-color:#d0f0df;
+}
+
+.stat:nth-child(6){
+    background:#fff3eb;
+    border-color:#ffe0cd;
+}
+
+.stat.correct .stat-number{
+    color:#10966c;
+}
+
+.stat.wrong .stat-number{
+    color:#d94b6b;
+}
+
+.stat.unanswered .stat-number{
+    color:#637188;
+}
+
+/* ==============================
+   REVIEW
+============================== */
+
+.review-title{
+    font-size:21px;
+
+    margin-bottom:15px;
+}
+
+.review-item{
+    padding:18px;
+
+    margin-bottom:12px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f9ff,
+            #f4fbff
+        );
+
+    border:1px solid #dfe5f3;
+
+    box-shadow:
+        0 5px 14px rgba(55,65,100,.05);
+}
+
+.review-status{
+    display:inline-block;
+
+    padding:5px 10px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:9px;
+}
+
+.review-status.correct{
+    color:#087653;
+    background:#dff8ed;
+}
+
+.review-status.wrong{
+    color:#b52f52;
+    background:#ffe1e9;
+}
+
+.review-status.unanswered{
+    color:#536277;
+    background:#e8edf4;
+}
+
+.review-question{
+    font-weight:700;
+
+    line-height:1.6;
+}
+
+.answer-info{
+    margin-top:9px;
+
+    color:#68748c;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.correct-answer{
+    color:#07825c;
+    font-weight:800;
+}
+
+.user-wrong{
+    color:#cf3e61;
+    font-weight:800;
+}
+
+/* ==============================
+   ERROR
+============================== */
+
+.error{
+    margin-top:13px;
+
+    padding:13px 15px;
+
+    border-radius:13px;
+
+    color:#a72e4e;
+
+    background:#fff0f4;
+
+    border:1px solid #ffd4df;
+
+    font-size:13px;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+
+footer{
+    text-align:center;
+
+    padding:25px 15px 30px;
+
+    color:#53618a;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    letter-spacing:.3px;
+}
+
+footer::before{
+    content:"✦ ";
+
+    color:#7657e8;
+}
+
+footer::after{
+    content:" ✦";
+
+    color:#20aebd;
+}
+
+/* ==============================
+   HIDDEN
+============================== */
+
+.hidden{
+    display:none !important;
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media(max-width:650px){
+
+    .hero{
+        padding:40px 15px 75px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .logo{
+        width:66px;
+        height:66px;
+        font-size:31px;
+    }
+
+    .container{
+        width:calc(100% - 18px);
+        margin-top:-40px;
+    }
+
+    .card{
+        padding:18px;
+        border-radius:22px;
+    }
+
+    .question-box{
+        padding:18px;
+    }
+
+    .question-text{
+        font-size:17px;
+    }
+
+    .option{
+        padding:14px;
+        font-size:14px;
+    }
+
+    .option-letter{
+        width:33px;
+        height:33px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .test-header{
+        align-items:flex-start;
+    }
+
+    .timer{
+        min-width:90px;
+        font-size:13px;
+    }
+
+    textarea{
+        min-height:220px;
+    }
+}
+
+@media(max-width:430px){
+
+    .button-row{
+        flex-direction:column;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+    }
+
+    .navigation{
+        flex-wrap:wrap;
+    }
+
+    .nav-btn,
+    .finish-btn{
+        flex:1;
+    }
+
+    .stats{
+        gap:9px;
+    }
+
+    .stat{
+        padding:15px 8px;
+    }
+}
+
+/* ==============================
+   PRINT / PDF
+============================== */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    .hero,
+    .button-row,
+    .navigation,
+    footer{
+        display:none !important;
+    }
+
+    .container{
+        width:100%;
+        margin:0;
+    }
+
+    .card{
+        box-shadow:none;
+        border:none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <!-- ==========================
+         HERO
+    =========================== -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="logo">
+                🧠
+            </div>
+
+            <h1>
+                MCQ Challenge
+            </h1>
+
+            <p>
+                Practice • Test • Improve
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- ==========================
+             INPUT SCREEN
+        =========================== -->
+
+        <section
+            id="inputScreen"
+            class="card">
+
+            <div class="input-title">
+
+                <div class="input-icon">
+                    ✨
+                </div>
+
+                <div>
+                    <h2>
+                        MCQ শুরু করুন
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                নিচের বক্সে আপনার MCQ JSON paste করুন এবং পরীক্ষা শুরু করুন।
+            </p>
+
+
+            <textarea
+                id="jsonInput"
+                placeholder='[
+  {
+    "question": "বাংলাদেশের রাজধানীর নাম কী?",
+    "options": [
+      "চট্টগ্রাম",
+      "ঢাকা",
+      "রাজশাহী",
+      "খুলনা"
+    ],
+    "answer": 1
+  }
+]'></textarea>
+
+
+            <div
+                id="errorBox"
+                class="error hidden">
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    class="primary-btn"
+                    onclick="startTest()">
+
+                    🚀 পরীক্ষা শুরু করুন
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="loadDemo()">
+
+                    🎯 Demo MCQ
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             TEST SCREEN
+        =========================== -->
+
+        <section
+            id="testScreen"
+            class="card hidden">
+
+
+            <div class="test-header">
+
+                <div
+                    id="questionCounter"
+                    class="question-counter">
+
+                    প্রশ্ন 1 / 10
+
+                </div>
+
+
+                <div
+                    id="timer"
+                    class="timer">
+
+                    ⏱ 00:00
+
+                </div>
+
+            </div>
+
+
+            <div class="progress-wrap">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+
+            <div class="question-box">
+
+                <div
+                    id="questionNumber"
+                    class="question-number">
+
+                    QUESTION 01
+
+                </div>
+
+
+                <div
+                    id="questionText"
+                    class="question-text">
+                </div>
+
+            </div>
+
+
+            <div
+                id="options"
+                class="options">
+            </div>
+
+
+            <div class="navigation">
+
+                <button
+                    id="prevBtn"
+                    class="nav-btn"
+                    onclick="previousQuestion()">
+
+                    ← আগের
+
+                </button>
+
+
+                <button
+                    id="finishBtn"
+                    class="finish-btn"
+                    onclick="finishTest()">
+
+                    পরীক্ষা শেষ করুন ✓
+
+                </button>
+
+
+                <button
+                    id="nextBtn"
+                    class="nav-btn"
+                    onclick="nextQuestion()">
+
+                    পরের →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================
+             RESULT SCREEN
+        =========================== -->
+
+        <section
+            id="resultScreen"
+            class="card hidden">
+
+
+            <div class="result-header">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+
+                <h2>
+                    পরীক্ষা সম্পন্ন!
+                </h2>
+
+
+                <div
+                    id="scoreBig"
+                    class="score-big">
+
+                    0.00
+
+                </div>
+
+
+                <div
+                    id="percentageText"
+                    class="description">
+
+                    0%
+
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <div
+                        id="totalStat"
+                        class="stat-number">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+                        মোট প্রশ্ন
+                    </div>
+
+                </div>
+
+
+                <div class="stat correct">
+
+                    <div
+                        id="correctStat"
+                        class="stat-number">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+                        সঠিক
+                    </div>
+
+                </div>
+
+
+                <div class="stat wrong">
+
+                    <div
+                        id="wrongStat"
+                        class="stat-number">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+                        ভুল
+                    </div>
+
+                </div>
+
+
+                <div class="stat unanswered">
+
+                    <div
+                        id="unansweredStat"
+                        class="stat-number">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+                        উত্তর দেওয়া হয়নি
+                    </div>
+
+                </div>
+
+
+                <div class="stat correct">
+
+                    <div
+                        id="correctMarks"
+                        class="stat-number">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+                        সঠিক নম্বর
+                    </div>
+
+                </div>
+
+
+                <div class="stat wrong">
+
+                    <div
+                        id="negativeMarks"
+                        class="stat-number">
+
+                        0
+
+                    </div>
+
+                    <div class="stat-label">
+                        Negative Marks
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <h3 class="review-title">
+                📋 বিস্তারিত Review
+            </h3>
+
+
+            <div
+                id="reviewContainer">
+            </div>
+
+
+            <div class="button-row">
+
+                <button
+                    class="primary-btn"
+                    onclick="downloadPDF()">
+
+                    📄 PDF হিসাবে Save
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="retryWrong()">
+
+                    🔄 ভুলগুলো আবার দিন
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="newTest()">
+
+                    🆕 নতুন পরীক্ষা
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================
+         FOOTER
+    =========================== -->
+
+    <footer>
+        Made by Chonchol
+    </footer>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let questions = [];
+let answers = [];
+let current = 0;
+
+let startTime = null;
+let timerInterval = null;
+
+
+/* =========================================
+   DEMO
+========================================= */
+
+function loadDemo(){
+
+    const demo = [
+
+        {
+            question:"বাংলাদেশের রাজধানীর নাম কী?",
+            options:[
+                "চট্টগ্রাম",
+                "ঢাকা",
+                "রাজশাহী",
+                "খুলনা"
+            ],
+            answer:1
+        },
+
+        {
+            question:"২ + ২ = কত?",
+            options:[
+                "৩",
+                "৪",
+                "৫",
+                "৬"
+            ],
+            answer:1
+        },
+
+        {
+            question:"সূর্য কোন দিক থেকে ওঠে?",
+            options:[
+                "পশ্চিম",
+                "উত্তর",
+                "পূর্ব",
+                "দক্ষিণ"
+            ],
+            answer:2
+        },
+
+        {
+            question:"ইংরেজি বর্ণমালায় মোট কতটি অক্ষর আছে?",
+            options:[
+                "২৪টি",
+                "২৫টি",
+                "২৬টি",
+                "২৭টি"
+            ],
+            answer:2
+        },
+
+        {
+            question:"বাংলাদেশের জাতীয় ফুল কোনটি?",
+            options:[
+                "গোলাপ",
+                "শাপলা",
+                "জবা",
+                "বেলি"
+            ],
+            answer:1
+        }
+
+    ];
+
+
+    document.getElementById("jsonInput").value =
+        JSON.stringify(demo,null,2);
+}
+
+
+/* =========================================
+   START TEST
+========================================= */
+
+function startTest(){
+
+    const errorBox =
+        document.getElementById("errorBox");
+
+    errorBox.classList.add("hidden");
+
+
+    try{
+
+        const data =
+            JSON.parse(
+                document.getElementById("jsonInput").value
+            );
+
+
+        if(
+            !Array.isArray(data) ||
+            data.length === 0
+        ){
+
+            throw new Error(
+                "কমপক্ষে ১টি MCQ থাকতে হবে।"
+            );
+
+        }
+
+
+        data.forEach((q,index)=>{
+
+            if(
+                !q.question ||
+                !Array.isArray(q.options) ||
+                q.options.length !== 4 ||
+                typeof q.answer !== "number" ||
+                q.answer < 0 ||
+                q.answer > 3
+            ){
+
+                throw new Error(
+                    `Question ${index + 1} এর JSON format সঠিক নয়।`
+                );
+
+            }
+
+        });
+
+
+        questions = data;
+
+        answers =
+            new Array(questions.length).fill(null);
+
+        current = 0;
+
+        startTime = Date.now();
+
+
+        document
+            .getElementById("inputScreen")
+            .classList.add("hidden");
+
+
+        document
+            .getElementById("resultScreen")
+            .classList.add("hidden");
+
+
+        document
+            .getElementById("testScreen")
+            .classList.remove("hidden");
+
+
+        startTimer();
+
+        renderQuestion();
+
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+
+    }catch(error){
+
+        errorBox.textContent =
+            "⚠️ " + error.message;
+
+        errorBox.classList.remove("hidden");
+
+    }
+
+}
+
+
+/* =========================================
+   RENDER QUESTION
+========================================= */
+
+function renderQuestion(){
+
+    const q = questions[current];
+
+
+    document.getElementById(
+        "questionCounter"
+    ).textContent =
+        `প্রশ্ন ${current + 1} / ${questions.length}`;
+
+
+    document.getElementById(
+        "questionNumber"
+    ).textContent =
+        `QUESTION ${String(current + 1).padStart(2,"0")}`;
+
+
+    document.getElementById(
+        "questionText"
+    ).textContent =
+        q.question;
+
+
+    const progress =
+        ((current + 1) / questions.length) * 100;
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        progress + "%";
+
+
+    const container =
+        document.getElementById("options");
+
+
+    container.innerHTML = "";
+
+
+    const letters =
+        ["A","B","C","D"];
+
+
+    q.options.forEach((option,index)=>{
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "option";
+
+
+        button.innerHTML = `
+
+            <span class="option-letter">
+                ${letters[index]}
+            </span>
+
+            <span>
+                ${escapeHtml(option)}
+            </span>
+
+        `;
+
+
+        if(answers[current] !== null){
+
+            button.disabled = true;
+
+
+            if(
+                answers[current] === index
+            ){
+
+                button.classList.add("selected");
+
+            }
+
+        }
+
+
+        button.onclick = function(){
+
+            selectAnswer(index);
+
+        };
+
+
+        container.appendChild(button);
+
+    });
+
+
+    document.getElementById(
+        "prevBtn"
+    ).disabled =
+        current === 0;
+
+
+    document.getElementById(
+        "nextBtn"
+    ).disabled =
+        current === questions.length - 1;
+
+}
+
+
+/* =========================================
+   SELECT ANSWER
+========================================= */
+
+function selectAnswer(index){
+
+    if(answers[current] !== null){
+        return;
+    }
+
+
+    answers[current] = index;
+
+
+    const buttons =
+        document.querySelectorAll(".option");
+
+
+    buttons.forEach((button,i)=>{
+
+        button.disabled = true;
+
+
+        if(i === index){
+
+            button.classList.add("selected");
+
+        }
+
+    });
+
+
+    /*
+       Answer select করার পর
+       একটু highlight দেখিয়ে
+       automatically next question
+    */
+
+    setTimeout(()=>{
+
+        if(
+            current <
+            questions.length - 1
+        ){
+
+            current++;
+
+            renderQuestion();
+
+        }else{
+
+            finishTest();
+
+        }
+
+    },500);
+
+}
+
+
+/* =========================================
+   NEXT
+========================================= */
+
+function nextQuestion(){
+
+    if(
+        current <
+        questions.length - 1
+    ){
+
+        current++;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+/* =========================================
+   PREVIOUS
+========================================= */
+
+function previousQuestion(){
+
+    if(current > 0){
+
+        current--;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+/* =========================================
+   FINISH
+========================================= */
+
+function finishTest(){
+
+    clearInterval(timerInterval);
+
+    showResult();
+
+}
+
+
+/* =========================================
+   RESULT
+========================================= */
+
+function showResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let unanswered = 0;
+
+
+    answers.forEach((answer,i)=>{
+
+        if(answer === null){
+
+            unanswered++;
+
+        }
+
+        else if(
+            answer === questions[i].answer
+        ){
+
+            correct++;
+
+        }
+
+        else{
+
+            wrong++;
+
+        }
+
+    });
+
+
+    const correctMarks =
+        correct;
+
+
+    const negativeMarks =
+        wrong * 0.25;
+
+
+    const finalScore =
+        correctMarks - negativeMarks;
+
+
+    const percentage =
+        (finalScore / questions.length) * 100;
+
+
+    document.getElementById(
+        "totalStat"
+    ).textContent =
+        questions.length;
+
+
+    document.getElementById(
+        "correctStat"
+    ).textContent =
+        correct;
+
+
+    document.getElementById(
+        "wrongStat"
+    ).textContent =
+        wrong;
+
+
+    document.getElementById(
+        "unansweredStat"
+    ).textContent =
+        unanswered;
+
+
+    document.getElementById(
+        "correctMarks"
+    ).textContent =
+        correctMarks.toFixed(2);
+
+
+    document.getElementById(
+        "negativeMarks"
+    ).textContent =
+        negativeMarks.toFixed(2);
+
+
+    document.getElementById(
+        "scoreBig"
+    ).textContent =
+        finalScore.toFixed(2);
+
+
+    document.getElementById(
+        "percentageText"
+    ).textContent =
+        `${percentage.toFixed(2)}%`;
+
+
+    renderReview();
+
+
+    document
+        .getElementById("testScreen")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("resultScreen")
+        .classList.remove("hidden");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   REVIEW
+========================================= */
+
+function renderReview(){
+
+    const container =
+        document.getElementById(
+            "reviewContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    questions.forEach((q,index)=>{
+
+        const userAnswer =
+            answers[index];
+
+
+        let status;
+        let statusClass;
+
+
+        if(userAnswer === null){
+
+            status =
+                "উত্তর দেওয়া হয়নি";
+
+            statusClass =
+                "unanswered";
+
+        }
+
+        else if(
+            userAnswer === q.answer
+        ){
+
+            status =
+                "সঠিক";
+
+            statusClass =
+                "correct";
+
+        }
+
+        else{
+
+            status =
+                "ভুল";
+
+            statusClass =
+                "wrong";
+
+        }
+
+
+        const userText =
+            userAnswer === null
+            ? "কোনো উত্তর দেওয়া হয়নি"
+            : q.options[userAnswer];
+
+
+        const correctText =
+            q.options[q.answer];
+
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "review-item";
+
+
+        item.innerHTML = `
+
+            <div class="review-status ${statusClass}">
+                ${status}
+            </div>
+
+            <div class="review-question">
+                ${index + 1}. ${escapeHtml(q.question)}
+            </div>
+
+            <div class="answer-info">
+
+                আপনার উত্তর:
+                <span class="${
+                    userAnswer === null
+                    ? ""
+                    : userAnswer === q.answer
+                    ? "correct-answer"
+                    : "user-wrong"
+                }">
+
+                    ${escapeHtml(userText)}
+
+                </span>
+
+                <br>
+
+                সঠিক উত্তর:
+
+                <span class="correct-answer">
+                    ${escapeHtml(correctText)}
+                </span>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(item);
+
+    });
+
+}
+
+
+/* =========================================
+   RETRY WRONG
+========================================= */
+
+function retryWrong(){
+
+    const wrongQuestions = [];
+
+
+    questions.forEach((q,index)=>{
+
+        if(
+            answers[index] !== null &&
+            answers[index] !== q.answer
+        ){
+
+            wrongQuestions.push(q);
+
+        }
+
+    });
+
+
+    if(wrongQuestions.length === 0){
+
+        alert(
+            "ভুল কোনো প্রশ্ন নেই। 🎉"
+        );
+
+        return;
+
+    }
+
+
+    questions =
+        wrongQuestions;
+
+
+    answers =
+        new Array(
+            questions.length
+        ).fill(null);
+
+
+    current = 0;
+
+    startTime = Date.now();
+
+
+    document
+        .getElementById("resultScreen")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("testScreen")
+        .classList.remove("hidden");
+
+
+    startTimer();
+
+    renderQuestion();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   NEW TEST
+========================================= */
+
+function newTest(){
+
+    clearInterval(timerInterval);
+
+
+    questions = [];
+    answers = [];
+    current = 0;
+
+
+    document
+        .getElementById("resultScreen")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("testScreen")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("inputScreen")
+        .classList.remove("hidden");
+
+
+    document.getElementById(
+        "jsonInput"
+    ).value = "";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   TIMER
+========================================= */
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+
+    timerInterval =
+        setInterval(()=>{
+
+            const elapsed =
+                Math.floor(
+                    (Date.now() - startTime) / 1000
+                );
+
+
+            const minutes =
+                Math.floor(elapsed / 60);
+
+
+            const seconds =
+                elapsed % 60;
+
+
+            document.getElementById(
+                "timer"
+            ).textContent =
+                `⏱ ${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+        },1000);
+
+}
+
+
+/* =========================================
+   PDF
+========================================= */
+
+function downloadPDF(){
+
+    window.print();
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(text){
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+</script>
+
+</body>
+</html>
